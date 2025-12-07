@@ -40,7 +40,7 @@ async def list_models(ide_token: str = Header(TRAE_IDE_TOKEN, alias="Authorizati
     ide_token = ide_token.removeprefix("Bearer ")
     async with AsyncClient() as client:
         response = await client.get(
-            "https://trae-api-sg.mchost.guru/api/ide/v1/model_list",
+            "https://trae-api-cn.mchost.guru/api/ide/v1/model_list",
             params={"type": "llm_raw_chat"},
             headers={
                 "x-app-id": TRAE_APP_ID,
@@ -77,7 +77,7 @@ async def create_chat_completions(
             async with httpx_sse.aconnect_sse(
                 client,
                 "POST",
-                "https://trae-api-sg.mchost.guru/api/ide/v1/chat",
+                "https://trae-api-cn.mchost.guru/api/ide/v1/chat",
                 headers={
                     "x-app-id": TRAE_APP_ID,
                     "x-device-brand": TRAE_DEVICE_BRAND,
